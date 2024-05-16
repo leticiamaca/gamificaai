@@ -57,26 +57,7 @@ const selecionarSlide = (indiceSlide) => {
 };
 
 let listaCases = [
-  {
-    imagem: "https://unsplash.it/640/425?image=40",
-    descricao:
-      "Uma empresa de tecnologia lança um desafio de gamificação onde os funcionários devem propor e implementar ideias inovadoras",
-  },
-  {
-    imagem: "https://unsplash.it/640/425?image=39",
-    descricao:
-      "Uma empresa de consultoria cria uma narrativa interativa de gamificação para seu programa de treinamento.",
-  },
-  {
-    imagem: "https://unsplash.it/640/425?image=10",
-    descricao:
-      "Uma empresa de games implementa uma competição gamificada entre equipes que competem pelo topo do ranking",
-  },
-  {
-    imagem: "https://unsplash.it/640/425?image=20",
-    descricao:
-      "Uma empresa de saúde promove o bem-estar dos funcionários através de um desafio de gamificação de condicionamento físico",
-  },
+    
 ];
 
 const renderizarCases = () => {
@@ -95,3 +76,55 @@ const renderizarCases = () => {
 }
 
 
+const carregarCases = () =>{ 
+  //requisição dos dados que estão dentro do banco de dados para a API trazer
+  fetch("http://localhost:3000/cases")
+
+  //O then interpreta os dados que a API trouxe e transforma esses dados em um jeito que o JavaScript  entenda
+// A resposta da API vem de modo Assincrono pode demorar e ele é uma promise quando uma função retorna uma promisse você pode sincronizar uma função dentro dos parenteses e quando colocamos um nome entre parenteses nós renomeamos essa promise(Resposta)
+// Como a resposta vem com uma promisse o then executa quando essa função chega, se ela não chegar ou demorar muito ou até não chegar nós colocamos um catch com console.error
+  .then( resposta => resposta.json()
+   )
+
+  .then ((dados) => {
+listaCases = dados
+renderizarCases()
+  })
+
+}
+
+const solicitarOrcamento = () =>{
+  //Pegar valores dos inputs
+let valorNome = document.getElementById('campo-nome').value
+let valorEmail = document.getElementById('campo-email').value
+let valorDescricao = document.getElementById('campo-descricao').value
+console.log(valorNome)
+console.log(valorEmail)
+console.log(valorDescricao)
+
+  // organizar objetos com os valores
+  let dadosForm = {
+nome: valorNome,
+email: valorEmail,
+descricao: valorDescricao
+  }
+  // Enviar requisição para a API
+  //127.0.0.1 siginifica localhost também porém em formato de número
+  //Método http post - create -> cadastrar ou criar 
+  fetch("http://localhost:3000/solicitacoes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+      
+    },
+    body: JSON.stringify(dadosForm)
+
+  })
+  .then(resposta => console.log(resposta))
+  .catch(erro => console.error(erro))  //Caso erro - catch alert com mensagem de erro
+
+    // Limpar os campos do formulário
+
+      //Mostrar alert com mensagem de sucesso
+    
+}
