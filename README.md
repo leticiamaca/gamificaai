@@ -54,7 +54,7 @@ json-server --watch db.json
 ---
 
 ## 📸 Screenshot do Projeto
-![Screenshot do Projeto](./screenshot.png)
+![Screenshot do Projeto](./gamificaai.png)
 
 ---
 
@@ -122,7 +122,7 @@ json-server --watch db.json
 ---
 
 ## 📸 Project Screenshot
-![Project Screenshot](./gamificaai.png)
+![Project Screenshot](./formulario.png)
 
 ---
 
