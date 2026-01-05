@@ -38,7 +38,7 @@ Para visualizar corretamente os cases de gamificação, é necessário rodar o J
 ### Passo a passo
 
 1. Clone o repositório:
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/leticiamaca/gamificaai.git
 
 2. Acesse a pasta do projeto:
 cd nome-do-projeto
@@ -106,7 +106,7 @@ To correctly view the gamification cases, JSON Server must be running, as the da
 ### Steps
 
 1. Clone the repository:
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/leticiamaca/gamificaai.git
 
 2. Navigate to the project folder:
 cd 
